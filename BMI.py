@@ -1,8 +1,10 @@
-'''
+"""
 Created on Feb 27, 2015
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
+
 def calculate(weight, height):
     """ 
     return float indicating BMI (body mass index)
@@ -12,4 +14,4 @@ def calculate(weight, height):
     # you write code here
     
     bmi = 703.0695 * weight/(height*height)
-    return(bmi)
+    return bmi
