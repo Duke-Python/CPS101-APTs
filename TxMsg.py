@@ -6,9 +6,11 @@ Created on Feb 1, 2012
 
 
 def all_vowels(string):
-    
-    vows = string.count("a") + string.count("e") + string.count("i") \
-                + string.count("o") + string.count("u")
+
+    vows = 0
+    vowels = {"a", "e", "i", "o", "u"}
+    for vowel in vowels:
+        vows += string.count(vowel)
     
     return vows == len(string)
 
