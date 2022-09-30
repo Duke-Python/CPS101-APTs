@@ -28,6 +28,6 @@ def generate(results):
     tuple_list.sort(key=itemgetter(0))
     tuple_list.sort(key=itemgetter(1, 2, 3), reverse=True)
 
-    return [medal_tuple[0] + " " + str(medal_tuple[1]) +
-                             " " + str(medal_tuple[2]) +
-                             " " + str(medal_tuple[3]) for medal_tuple in tuple_list]
+    return [medal_tuple[0] + " " + str(medal_tuple[1])
+                           + " " + str(medal_tuple[2])
+                           + " " + str(medal_tuple[3]) for medal_tuple in tuple_list]
