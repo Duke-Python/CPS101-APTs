@@ -1,8 +1,9 @@
-'''
+"""
 Created on Sep 23, 2014
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
 
 def coins(pence):
     
@@ -12,7 +13,7 @@ def coins(pence):
     shills = pence/12
     
     pennies = pence - shills*12
-    if (pennies < 0):
+    if pennies < 0:
         pennies = 0
     
-    return( [lbs, shills, pennies] )
+    return [lbs, shills, pennies]

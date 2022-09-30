@@ -1,8 +1,10 @@
-'''
+"""
 Created on Sep 17, 2014
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
 
 def maxPoints(toss):
+    pass
     

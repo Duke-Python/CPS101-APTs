@@ -1,12 +1,14 @@
-'''
+"""
 Created on Nov 6, 2014
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
+
 def nameDonor(contributions):
     
-    print '========================'
-    print contributions
+    print('========================')
+    print(contributions)
     
     donorMap = dict()
     for contribution in contributions:
@@ -18,7 +20,7 @@ def nameDonor(contributions):
             total = donorMap.get(donor) + amt
             donorMap[donor] = total
         else:
-            print [donor]
+            print([donor])
             donorMap[donor] = amt
 
     maxAmt = max(donorMap.values())
@@ -29,6 +31,5 @@ def nameDonor(contributions):
             donorList.append(donor)
 
     donorList.sort()
-    return(donorList[0])
-        
+    return donorList[0]
         
