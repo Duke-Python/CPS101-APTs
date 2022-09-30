@@ -1,10 +1,10 @@
-
-'''
+"""
 Created on Mar 26, 2012
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
 from operator import itemgetter
+
 
 def generate(results):
 
@@ -13,7 +13,7 @@ def generate(results):
         medals = countries.split()
         for i, country in enumerate(medals):
             if country not in medal_dict:
-                medal_count = [0,0,0]
+                medal_count = [0, 0, 0]
             else:
                 medal_count = medal_dict[country]
             medal_count[i] = medal_count[i] + 1
@@ -26,10 +26,8 @@ def generate(results):
         tuple_list.append(medal_tuple)
         
     tuple_list.sort(key=itemgetter(0))
-    tuple_list.sort(key=itemgetter(1,2,3),reverse=True)
+    tuple_list.sort(key=itemgetter(1, 2, 3), reverse=True)
 
-    return([medal_tuple[0] + " " + str(medal_tuple[1]) \
-                           + " " + str(medal_tuple[2]) \
-                           + " " + str(medal_tuple[3]) for medal_tuple in tuple_list])
-        
-    print tuple_list
+    return [medal_tuple[0] + " " + str(medal_tuple[1])
+                           + " " + str(medal_tuple[2])
+                           + " " + str(medal_tuple[3]) for medal_tuple in tuple_list]
