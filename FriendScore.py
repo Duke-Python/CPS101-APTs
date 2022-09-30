@@ -10,7 +10,7 @@ def highestScore(friends):
     print("========================")
     print(friends)
 
-    maxFriends = 0
+    max_friends = 0
     for k in range(len(friends)):
         line = friends[k]
         yeses = [i for i in range(len(line)) if line[i] == "Y"]
@@ -18,14 +18,14 @@ def highestScore(friends):
         print(yeses)
         for i in range(len(yeses)-1):
             temp = friends[yeses[i]]
-            posFriends = [j for j in range(len(temp)) if temp[j] == "Y"]
-            print(str(i) + ": " + str(posFriends))
-            for j in range(len(posFriends)):
-                yeses.append(posFriends[j])
+            pos_friends = [j for j in range(len(temp)) if temp[j] == "Y"]
+            print(str(i) + ": " + str(pos_friends))
+            for j in range(len(pos_friends)):
+                yeses.append(pos_friends[j])
             print(yeses)
 
-        numFriends = len(set(yeses)) - 1
-        if numFriends > maxFriends:
-            maxFriends = numFriends
+        num_friends = len(set(yeses)) - 1
+        if num_friends > max_friends:
+            max_friends = num_friends
 
-    return maxFriends
+    return max_friends

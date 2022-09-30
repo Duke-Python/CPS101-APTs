@@ -8,27 +8,27 @@ Created on Nov 29, 2012
 def countPairs(words):
     
     count = 0
-    baselist = words[:len(words)-1]
-    for i, baseword in enumerate(baselist):
+    base_list = words[:len(words)-1]
+    for i, base_word in enumerate(base_list):
 
         testlist = words[i+1:len(words)]
-        for testword in testlist:
+        for test_word in testlist:
 
-            a2bMap = {}
-            b2aMap = {}
-            for k, bchar in enumerate(baseword):
-                tchar = testword[k]
-                a2bMap[bchar] = tchar
-                b2aMap[tchar] = bchar
+            a2b_map = {}
+            b2a_map = {}
+            for k, bchar in enumerate(base_word):
+                tchar = test_word[k]
+                a2b_map[bchar] = tchar
+                b2a_map[tchar] = bchar
                 
-            wrdChecka = ""
-            wrdCheckb = ""
-            for k, bchar in enumerate(baseword):
-                tchar = testword[k]
-                wrdChecka = wrdChecka + a2bMap[bchar]
-                wrdCheckb = wrdCheckb + b2aMap[tchar]
+            wrd_checka = ""
+            wrd_checkb = ""
+            for k, bchar in enumerate(base_word):
+                tchar = test_word[k]
+                wrd_checka = wrd_checka + a2b_map[bchar]
+                wrd_checkb = wrd_checkb + b2a_map[tchar]
 
-            if (wrdChecka == testword) and (wrdCheckb == baseword):
+            if (wrd_checka == test_word) and (wrd_checkb == base_word):
                 count = count + 1
                 
     return count
