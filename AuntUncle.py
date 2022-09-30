@@ -5,10 +5,11 @@ Created on Apr 9, 2012
 """
 
 
+# noinspection SpellCheckingInspection
 def aulist(parents, target):
 
-    Par1 = ""
-    Par2 = ""
+    par1 = ""
+    par2 = ""
     family = {}
     for line in parents:
         temp = line.split()
@@ -16,39 +17,39 @@ def aulist(parents, target):
         parent2 = temp[1]
         kid = temp[2]
         if kid == target:
-            Par1 = parent1
-            Par2 = parent2
+            par1 = parent1
+            par2 = parent2
 
-        curPar = parent1
-        if curPar in family:
-            curKids = tuple(family[curPar])
-            curKids = curKids + (kid,)
+        cur_par = parent1
+        if cur_par in family:
+            cur_kids = tuple(family[cur_par])
+            cur_kids = cur_kids + (kid,)
         else:
-            curKids = (kid,)
-        family[curPar] = curKids
+            cur_kids = (kid,)
+        family[cur_par] = cur_kids
 
-        curPar = parent2
-        if curPar in family:
-            curKids = tuple(family[curPar])
-            curKids = curKids + (kid,)
+        cur_par = parent2
+        if cur_par in family:
+            cur_kids = tuple(family[cur_par])
+            cur_kids = cur_kids + (kid,)
         else:
-            curKids = (kid,)
-        family[curPar] = curKids
+            cur_kids = (kid,)
+        family[cur_par] = cur_kids
 
-    AuntUnc = ()
+    aunt_unc = ()
     parents = family.keys()
-    for curPar in parents:
-        if Par1 in family[curPar]:
-            AuntUnc = AuntUnc + family[curPar]
-        if Par2 in family[curPar]:
-            AuntUnc = AuntUnc + family[curPar]
+    for cur_par in parents:
+        if par1 in family[cur_par]:
+            aunt_unc = aunt_unc + family[cur_par]
+        if par2 in family[cur_par]:
+            aunt_unc = aunt_unc + family[cur_par]
 
-    AuntUnc = list(set(AuntUnc))
-    if Par1 in AuntUnc:
-        AuntUnc.remove(Par1)
-    if Par2 in AuntUnc:
-        AuntUnc.remove(Par2)
-    if target in AuntUnc:
-        AuntUnc.remove(target)
+    aunt_unc = list(set(aunt_unc))
+    if par1 in aunt_unc:
+        aunt_unc.remove(par1)
+    if par2 in aunt_unc:
+        aunt_unc.remove(par2)
+    if target in aunt_unc:
+        aunt_unc.remove(target)
 
-    return sorted(AuntUnc)
+    return sorted(aunt_unc)

@@ -17,9 +17,9 @@ def maxLength(letters):
     maximum = 0
     for i in range(len(letters)):
         teststr = letters[i:]
-        N = len(teststr)
-        for j in range(N):
-            teststr1 = teststr[0:N-j]
+        n = len(teststr)
+        for j in range(n):
+            teststr1 = teststr[:n-j]
             if uniqueLetters(teststr1) and (len(teststr1) > maximum):
                 maximum = len(teststr1)
 

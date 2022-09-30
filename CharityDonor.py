@@ -10,26 +10,26 @@ def nameDonor(contributions):
     print('========================')
     print(contributions)
     
-    donorMap = dict()
+    donor_map = dict()
     for contribution in contributions:
         temp = contribution.split(':')
         donor = temp[0]
         amt = float(temp[1])
             
-        if donor in donorMap:
-            total = donorMap.get(donor) + amt
-            donorMap[donor] = total
+        if donor in donor_map:
+            total = donor_map.get(donor) + amt
+            donor_map[donor] = total
         else:
             print([donor])
-            donorMap[donor] = amt
+            donor_map[donor] = amt
 
-    maxAmt = max(donorMap.values())
+    max_amt = max(donor_map.values())
 
-    donorList = []
-    for donor in donorMap:
-        if donorMap[donor] == maxAmt:
-            donorList.append(donor)
+    donor_list = []
+    for donor in donor_map:
+        if donor_map[donor] == max_amt:
+            donor_list.append(donor)
 
-    donorList.sort()
-    return donorList[0]
+    donor_list.sort()
+    return donor_list[0]
         

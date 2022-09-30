@@ -11,12 +11,12 @@ def getWeight(node, supervisors):
     
     children = [i for [i, child] in enumerate(supervisors) if child == node]
     print(children)
-    numChildren = len(children)
-    if numChildren == 0:
+    num_children = len(children)
+    if num_children == 0:
         return 0
     temp = [getWeight(i, supervisors) for i in children]
     print("temp = ", temp)
-    weight = max(temp) + (numChildren - 1)
+    weight = max(temp) + (num_children - 1)
     print("   ", weight)
     if all(temp[0] == item for item in temp):
         weight = weight + 1
