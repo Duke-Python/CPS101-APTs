@@ -1,8 +1,9 @@
-'''
+"""
 Created on Sep 17, 2014
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
 
 def bagelCount(orders):
 
@@ -10,4 +11,4 @@ def bagelCount(orders):
     for order in orders:
         count = count + order + order/12
         
-    return(count)
+    return count

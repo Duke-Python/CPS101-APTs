@@ -10,49 +10,49 @@ def theMin(room):
     if len(room) == 1:
         return 0
 
-    roomList = list(room)
+    room_list = list(room)
     retval = 0
     switched = False
     colors = 'RGBY'
  
 # Check all triples in the list
 
-    for i in range(1, len(roomList)-1):
-        matched = ((roomList[i] == roomList[i-1]) and (roomList[i] == roomList[i+1]))
+    for i in range(1, len(room_list)-1):
+        matched = ((room_list[i] == room_list[i-1]) and (room_list[i] == room_list[i+1]))
         j = 0
         while matched:
             switched = True
-            roomList[i] = colors[j]
+            room_list[i] = colors[j]
             j = j + 1
-            matched = ((roomList[i] == roomList[i-1]) and (roomList[i] == roomList[i+1]))
+            matched = ((room_list[i] == room_list[i-1]) and (room_list[i] == room_list[i+1]))
         if switched:
             retval = retval + 1
             switched = False
 
 #   Check for single swaps
     
-    for i in range(1, len(roomList)-1, 2):
-        matched = ((roomList[i] == roomList[i-1]) or (roomList[i] == roomList[i+1]))
+    for i in range(1, len(room_list)-1, 2):
+        matched = ((room_list[i] == room_list[i-1]) or (room_list[i] == room_list[i+1]))
         j = 0
         while matched:
             switched = True
-            roomList[i] = colors[j]
+            room_list[i] = colors[j]
             j = j + 1
-            matched = ((roomList[i] == roomList[i-1]) or (roomList[i] == roomList[i+1]))
+            matched = ((room_list[i] == room_list[i-1]) or (room_list[i] == room_list[i+1]))
         if switched:
             retval = retval + 1
             switched = False
 
 #   Check the last character
 
-    i = len(roomList) - 1    
-    matched = (roomList[i] == roomList[i-1])
+    i = len(room_list) - 1
+    matched = (room_list[i] == room_list[i-1])
     j = 0
     while matched:
         switched = True
-        roomList[i] = colors[j]
+        room_list[i] = colors[j]
         j = j + 1
-        matched = (roomList[i] == roomList[i-1])
+        matched = (room_list[i] == room_list[i-1])
          
     if switched:
         retval = retval + 1

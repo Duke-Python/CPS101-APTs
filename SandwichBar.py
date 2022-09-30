@@ -1,21 +1,23 @@
-'''
+"""
 Created on Sep 27, 2012
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
+
 def whichOrder(available, orders):
 
     index = -1
     ret_val = -1
     for sandwiches in orders:
 
-        barHas = True
+        bar_has = True
         for ingredients in sandwiches.split(" "):
-            barHas = barHas and (ingredients in available);
+            bar_has = bar_has and (ingredients in available)
 
-        if barHas and (ret_val == -1):
+        if bar_has and (ret_val == -1):
             ret_val = index + 1
         else:
             index = index + 1
 
-    return(ret_val)
+    return ret_val

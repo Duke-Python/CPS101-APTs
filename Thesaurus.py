@@ -7,14 +7,14 @@ Created on Dec 3, 2014
 
 def check(entries):
 
-    numEntries = len(entries)
+    num_entries = len(entries)
     combined = False
 
     i = 0
     j = 0
-    while (i < (numEntries-1)) and (not combined):
+    while (i < (num_entries-1)) and (not combined):
         j = i + 1
-        while (j < numEntries) and (not combined):
+        while (j < num_entries) and (not combined):
             combined = ((len(set(entries[i]) & set(entries[j]))) > 1)
             j = j + 1
         i = i + 1
@@ -30,8 +30,8 @@ def join(entries, first, second):
 
     added = False
     retval = []
-    numEntries = len(entries)
-    for i in range(numEntries):
+    num_entries = len(entries)
+    for i in range(num_entries):
         if (i != first) and (i != second):
             retval.append(entries[i])
         elif not added:
@@ -68,5 +68,6 @@ def edit(entry):
 
 if __name__ == '__main__':
 
-    test = ["ape monkey wrench", "wrench twist strain", "monkey twist fugue strain"]
+    test = ["ape monkey wrench", "wrench twist strain",
+            "monkey twist fugue strain"]
     edit(test)
