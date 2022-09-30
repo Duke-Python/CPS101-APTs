@@ -1,17 +1,20 @@
-'''
+"""
 Created on Sep 17, 2014
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
 
 def lovely(ingredients, inedible):
     
-    ingList = ingredients.split()
-    blechyList = inedible.split()
+    ing_list = ingredients.split()
+    blechy_list = inedible.split()
     
     retval = 0
-    for food in ingList:
-        if (food not in blechyList):
+    for food in ing_list:
+        if food not in blechy_list:
             retval = retval + 1
-            
-    return(retval)
+
+    ret_list = [food for food in ing_list if food not in blechy_list]
+
+    return len(ret_list)

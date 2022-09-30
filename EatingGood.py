@@ -1,15 +1,16 @@
-'''
+"""
 Created on Oct 15, 2014
 
-@author: hughgs
-'''
+@author: George S. Hugh
+"""
+
 
 def howMany(meals, restaurant):
  
     retval = set()
-    if (len(meals) > 0):
+    if len(meals) > 0:
         for diner in meals:
             if restaurant in diner:
                 retval.add(diner.split(":")[0])
 
-    return(len(retval))
+    return len(retval)
