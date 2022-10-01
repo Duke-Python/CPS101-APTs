@@ -14,4 +14,4 @@ permissions:
 
 jobs:
   call-linter-workflow:
-    uses: Duke-Python/.github/workflows/python-linter.yml@v1
+    uses: Duke-Python/.github/workflows/python-linter.yml@v1.0
