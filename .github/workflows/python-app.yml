@@ -11,4 +11,4 @@ on:
 
 jobs:
   call-linter-workflow:
-    uses: Duke-Python/.github/.github/workflows/python-linter.yml@v1.0
+    uses: Duke-Python/.github/.github/workflows/python-linter.yml@main
