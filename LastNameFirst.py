@@ -8,16 +8,16 @@ Created on Sep 10, 2014
 def modify(name):
     
     names = name.split()
-    listLength = len(names)
+    list_length = len(names)
 
-    if listLength < 2:
+    if list_length < 2:
         return names[0]
-    if listLength == 2:
+    if list_length == 2:
         return names[1] + ", " + names[0]
 
-    retStr = names[-1] + ", " + names[0]
+    ret_str = names[-1] + ", " + names[0]
     for name in names[1:-1]:
-        retStr = retStr + " " + name[0]
+        ret_str = ret_str + " " + name[0]
         if len(name) > 1:
-            retStr = retStr + "."
-    return retStr
+            ret_str = ret_str + "."
+    return ret_str
