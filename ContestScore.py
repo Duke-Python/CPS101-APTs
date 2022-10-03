@@ -5,14 +5,14 @@ Created on Apr 18, 2012
 """
 
 
-def find(T, requiredTime):
+def find(t, required_time):
 
     print("=======================")
-    localtime = sorted(requiredTime)
-    tasktime = localtime
+    localtime = sorted(required_time)
+    task_time = localtime
     for i in range(1, len(localtime)):
-        tasktime[i] = tasktime[i-1] + localtime[i]
+        task_time[i] = task_time[i-1] + localtime[i]
 
-    tasktime = [tasktime[i] for i in range(len(tasktime)) if tasktime[i] <= T]
+    task_time = [task_time[i] for i in range(len(task_time)) if task_time[i] <= t]
 
-    return [len(tasktime), sum(tasktime)]
+    return [len(task_time), sum(task_time)]
