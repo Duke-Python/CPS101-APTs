@@ -5,12 +5,12 @@ Created on 9/25/2022
 """
 
 
-def grade(total, availablePoints, cutOff):
+def grade(total, available_points, cut_off):
     """
     return a student's reading quiz grade as a float percentage based on
     the integer values in total, availablePoints, and cutOff.
     """
-    percent = total/(availablePoints*cutOff/100)*100
+    percent = total / (available_points * cut_off / 100) * 100
     if percent >= 100.0:
         return 100.0
     return percent
