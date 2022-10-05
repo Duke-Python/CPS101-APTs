@@ -9,7 +9,10 @@ def get_parents(parents, target):
     pass
 
 
-def create_dictionary(parents):
+def create_kid_dictionary(parents):
+    """
+    Create dictionary of kids with a list of parents
+    """
     family = {}
     for line in parents:
         parent1, parent2, kid = line.split()
@@ -17,24 +20,36 @@ def create_dictionary(parents):
     return family
 
 
+def add_to_dict(dictionary, key, value):
+    """
+    Create dictionary of parents with a set of kids
+    """
+    if key in dictionary:
+        dictionary[key] = dictionary[key].add(value)
+    if key not in dictionary:
+        dictionary[key] = set(value)
+
+
+def create_par_dictionary(parents):
+    family = {}
+    for line in parents:
+        parent1, parent2, kid = line.split()
+        add_to_dict(family, parent1, kid)
+        add_to_dict(family, parent2, kid)
+    return family
+
+
 # noinspection SpellCheckingInspection
 def aulist(parents, target):
 
-    family = create_dictionary(parents)
-    aunt_unc = ()
-    parents = family.keys()
-    for cur_par in parents:
-        if par1 in family[cur_par]:
-            aunt_unc = aunt_unc + family[cur_par]
-        if par2 in family[cur_par]:
-            aunt_unc = aunt_unc + family[cur_par]
-
-    aunt_unc = list(set(aunt_unc))
-    if par1 in aunt_unc:
-        aunt_unc.remove(par1)
-    if par2 in aunt_unc:
-        aunt_unc.remove(par2)
-    if target in aunt_unc:
-        aunt_unc.remove(target)
+    kid_dict = create_kid_dictionary(parents)
+    par_dict = create_par_dictionary(parents)
+    par1, par2 = kid_dict[target]
+    grands = kid_dict[par1]
+    grands = grands + kid_dict[par2]
+    aunt_unc = set()
+    parents = kid_dict.keys()
+    for cur_grand in grands:
+        aunt_unc.add(kid_dict[cur_grand])
 
     return sorted(aunt_unc)
