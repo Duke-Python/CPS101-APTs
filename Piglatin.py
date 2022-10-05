@@ -12,4 +12,4 @@ def convert(s):
             found = True
             index = i
     
-    return s[index:] + '-' + s[0:index] + 'ay'
+    return s[index:] + '-' + s[:index] + 'ay'

@@ -7,7 +7,7 @@ Created on Sep 10, 2014
 
 def shorten(name):
     
-    nameList = name.split()
-    if len(nameList) > 1:
-        return nameList[0] + " " + nameList[-1]
-    return nameList[0]
+    name_list = name.split()
+    if len(name_list) > 1:
+        return name_list[0] + " " + name_list[-1]
+    return name_list[0]

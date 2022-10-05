@@ -1,11 +1,11 @@
 """
 Created on 9/25/2022
 
-@author: George Hugh
+@author: George S. Hugh
 """
 
 
-def average(sentenceList):
+def average(sentence_list):
     """
     returns the average sentence length
     of all the sentences in sentenceList, a
@@ -13,11 +13,7 @@ def average(sentenceList):
     """
 
     total_words = 0
-    for sentence in sentenceList:
+    for sentence in sentence_list:
         total_words = total_words + len(sentence.split())
 
-    return total_words/len(sentenceList)
-
-
-if __name__ == '__main__':
-    pass
+    return total_words/len(sentence_list)

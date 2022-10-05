@@ -13,7 +13,7 @@ def theMin(room):
     room_list = list(room)
     retval = 0
     switched = False
-    colors = 'RGBY'
+    colors = ["R", "G", "B", "Y"]
  
 # Check all triples in the list
 
