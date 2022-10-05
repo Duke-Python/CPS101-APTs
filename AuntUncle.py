@@ -5,34 +5,22 @@ Created on Apr 9, 2012
 """
 
 
-# noinspection SpellCheckingInspection
-def aulist(parents, target):
+def get_parents(parents, target):
+    pass
 
-    par1 = ""
-    par2 = ""
+
+def create_dictionary(parents):
     family = {}
     for line in parents:
         parent1, parent2, kid = line.split()
-        if kid == target:
-            par1 = parent1
-            par2 = parent2
+        family[kid] = [parent1, parent2]
+    return family
 
-        cur_par = parent1
-        if cur_par in family:
-            cur_kids = tuple(family[cur_par])
-            cur_kids = cur_kids + (kid,)
-        else:
-            cur_kids = (kid,)
-        family[cur_par] = cur_kids
 
-        cur_par = parent2
-        if cur_par in family:
-            cur_kids = tuple(family[cur_par])
-            cur_kids = cur_kids + (kid,)
-        else:
-            cur_kids = (kid,)
-        family[cur_par] = cur_kids
+# noinspection SpellCheckingInspection
+def aulist(parents, target):
 
+    family = create_dictionary(parents)
     aunt_unc = ()
     parents = family.keys()
     for cur_par in parents:
