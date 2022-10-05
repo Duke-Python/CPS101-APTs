@@ -16,29 +16,29 @@ def calcScore(unique1, unique2):
     return 0
 
 
-def wordScore(testStr, testList1, testList2):
-    unique1 = wordNotInList(testStr, testList1)
-    unique2 = wordNotInList(testStr, testList2)
+def wordScore(test_str, test_list1, test_list2):
+    unique1 = wordNotInList(test_str, test_list1)
+    unique2 = wordNotInList(test_str, test_list2)
     
     return calcScore(unique1, unique2)
 
 
-def wordNotInList(testStr, testList):
-    return testStr not in testList
+def wordNotInList(test_str, test_list):
+    return test_str not in test_list
 
 
-def score(listA, listB, listC):
+def score(list_a, list_b, list_c):
     
-    scoreA = 0
-    for word in listA:
-        scoreA = scoreA + wordScore(word, listB, listC)
+    score_a = 0
+    for word in list_a:
+        score_a = score_a + wordScore(word, list_b, list_c)
 
-    scoreB = 0
-    for word in listB:
-        scoreB = scoreB + wordScore(word, listA, listC)
+    score_b = 0
+    for word in list_b:
+        score_b = score_b + wordScore(word, list_a, list_c)
 
-    scoreC = 0
-    for word in listC:
-        scoreC = scoreC + wordScore(word, listA, listB)
+    score_c = 0
+    for word in list_c:
+        score_c = score_c + wordScore(word, list_a, list_b)
 
-    return str(scoreA) + "/" + str(scoreB) + "/" + str(scoreC)
+    return str(score_a) + "/" + str(score_b) + "/" + str(score_c)

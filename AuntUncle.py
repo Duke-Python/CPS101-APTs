@@ -12,10 +12,7 @@ def aulist(parents, target):
     par2 = ""
     family = {}
     for line in parents:
-        temp = line.split()
-        parent1 = temp[0]
-        parent2 = temp[1]
-        kid = temp[2]
+        parent1, parent2, kid = line.split()
         if kid == target:
             par1 = parent1
             par2 = parent2
