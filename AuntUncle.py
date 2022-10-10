@@ -49,6 +49,6 @@ def aulist(parents, target):
     grands = grands + kid_dict[par2]
     aunt_unc = set()
     for cur_grand in grands:
-        aunt_unc.add(kid_dict[cur_grand])
+        aunt_unc.add(par_dict[cur_grand])
 
     return sorted(aunt_unc)
