@@ -6,12 +6,11 @@ Created on Oct 28, 2014
 
 
 def reversecomp(dna):
-    
-    dna_list = list(dna)
-    print(dna_list)
-    list1 = ['a', 't', 'c', 'g']
-    list2 = ['t', 'a', 'g', 'c']
-    
-#    for i in range(len(dna_list)):
 
-    return dna.reverse()
+    dna_comp_dict = {"a": "t", "t": "a", "c": "g", "g": "c"}
+
+    dna_comp = []
+    for dna_part in dna:
+        dna_comp.append(dna_comp_dict[dna_part])
+
+    return dna_comp.reverse()
