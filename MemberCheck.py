@@ -11,9 +11,6 @@ def whosDishonest(club1, club2, club3):
     cheat13 = set(club1).intersection(set(club3))
     cheat23 = set(club2).intersection(set(club3))
     
-    print("================")
-    print(cheat12)
-    print(cheat13)
-    print(cheat23)
-    
-    return list(cheat12)
+    ret_list = list(cheat12.union(cheat13).union(cheat23))
+    ret_list.sort()
+    return ret_list
