@@ -11,9 +11,4 @@ def convert(r, g, b):
     converting integer r,g,b, into grayscale
     """
 
-    grayscale = 0.21*r + 0.71*g + 0.07*b
-    return grayscale
-
-
-if __name__ == '__main__':
-    pass
+    return 0.21*r + 0.71*g + 0.07*b

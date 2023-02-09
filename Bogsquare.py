@@ -7,5 +7,4 @@ Created on Feb 27, 2015
 
 def score(word):
 
-    word_length = len(word)
-    return word_length * word_length
+    return len(word) * len(word)

@@ -12,5 +12,4 @@ def volume(radius, height):
     """
 
     pi = 3.1415926
-    cone_vol = 1.0/3.0 * pi * radius * radius * height
-    return cone_vol
+    return 1.0/3.0 * pi * radius * radius * height
