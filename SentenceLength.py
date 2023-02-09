@@ -12,8 +12,6 @@ def average(sentence_list):
     list of white-space delimited strings.
     """
 
-    total_words = 0
-    for sentence in sentence_list:
-        total_words = total_words + len(sentence.split())
+    words = [len(sentence.split()) for sentence in sentence_list]
 
-    return total_words/len(sentence_list)
+    return sum(words)/len(sentence_list)

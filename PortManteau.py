@@ -13,8 +13,4 @@ def combine(first, flen, second, slen):
     and slen chars from second
     """
 
-    return first[0:flen]+second[-slen:]
-
-
-if __name__ == '__main__':
-    pass
+    return first[:flen] + second[-slen:]
