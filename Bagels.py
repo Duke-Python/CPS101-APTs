@@ -7,8 +7,4 @@ Created on Sep 17, 2014
 
 def bagelCount(orders):
 
-    count = 0
-    for order in orders:
-        count = count + order + order/12
-
-    return count
+    return sum([order + order//12 for order in orders])

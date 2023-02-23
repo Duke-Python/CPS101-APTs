@@ -10,13 +10,5 @@ def ratio(dna):
     of the nucleotides in the string parameter dna
     """ 
     
-    count = 0
-    for acid in dna:
-        if (acid == 'c') or (acid == 'g'):
-            count = count + 1
-            
-    print(count)
-            
-#    [count++ for i in dna if ((i=='c') or (i=='g'))]
-
-    return float(count) / len(dna)
+    acid_list = [1 for i in dna if ((i=='c') or (i=='g'))]
+    return len(acid_list)/len(dna)
