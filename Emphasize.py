@@ -26,7 +26,7 @@ def repeat(word, number):
     if word[0].lower() in vowels:
         return word
 
-    if string_not_in(word[0:3], vowels):
+    if string_all_not_in(word[0:3], vowels):
         return word
 
     if len(word) < 3:
@@ -40,12 +40,10 @@ def repeat(word, number):
 
 
 def concat_string(cat_str, number):
-    repeat_str = cat_str
-    for _ in range(number-1):
-        repeat_str += cat_str.lower()
-    return repeat_str
+    return cat_str + cat_str.lower()*(number-1)
 
-def string_not_in(test_str, vowels):
+
+def string_all_not_in(test_str, vowels):
     for letter in test_str:
         if letter in vowels:
             return False
