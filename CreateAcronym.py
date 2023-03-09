@@ -12,4 +12,4 @@ def acronym(phrase):
     parameter phrase
     """
 
-    return ''.join([word[0] for word in phrase.split(" ")])
+    return "".join([word[0] for word in phrase.split(" ")])

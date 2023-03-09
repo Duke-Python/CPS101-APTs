@@ -7,12 +7,18 @@ Created on Feb 1, 2012
 
 def all_vowels(string):
 
-    vows = 0
-    vowels = {"a", "e", "i", "o", "u"}
+    vowels = "aeiou"
+    for letter in string:
+        if letter not in vowels:
+            return False
+    return True
+
+
+def make_cons(word):
+    vowels = "aeiou"
     for vowel in vowels:
-        vows += string.count(vowel)
-    
-    return vows == len(string)
+        word = word.replace(vowel, " ")
+    return word.split(" ")
 
 
 def getMessage(original):
@@ -21,20 +27,15 @@ def getMessage(original):
 #    print original
 
     words = original.split(" ")
-    for string in words:
-        if not all_vowels(string):
+    for word in original.split(" "):
+        if not all_vowels(word):
+            consonants = make_cons(word)
             tx_word = ""
-            string = string.replace("a", " ")
-            string = string.replace("e", " ")
-            string = string.replace("i", " ")
-            string = string.replace("o", " ")
-            string = string.replace("u", " ")
-            cons = string.split(" ")
-            for sub in cons:
+            for sub in consonants:
                 if sub != "":
-                    tx_word = tx_word + sub[0]
+                    tx_word += sub[0]
         else:
-            tx_word = string
+            tx_word = word
 
         tx_msg = tx_msg + " " + tx_word
         

@@ -14,14 +14,14 @@ def word_split(word, splitter):
 
 
 def check(word):
-    """ return String based on parameter word, a String """
+    """ Replace syllables with spaces, then remove spaces """
 
-    # pikachu = ["pi", "ka", "chu"]
-    split_pi = word_split(word, "pi")
-    for item in split_pi:
-        split_ka = word_split(item, "ka")
-        for item2 in split_ka:
-            split_chu = word_split(item2, "chu")
-            if len(split_chu) != 0:
-                return "NO"
-    return "YES"
+    syllables = ["pi", "ka", "chu"]
+    new_word = word
+    for syllable in syllables:
+        new_word = new_word.replace(syllable, " ")
+    new_word = new_word.replace(" ", "")
+
+    if len(new_word) == 0:
+        return "YES"
+    return "NO"
