@@ -1,3 +1,12 @@
+
+def list_of_children(person, parents, children):
+    retval = []
+    for parent, child in zip(parents, children):
+        if parent == person:
+            retval.append(child)
+    return retval
+
+
 def grandchildren(parents, children, person):
     """
     parents (list of strings) - list of parent names corresponding to the
@@ -8,17 +17,9 @@ def grandchildren(parents, children, person):
           
     Return the number of grandchildren for the person in the person variable
     """
-    kids = {}
-    for parent, kid in zip(parents, children):
-        if parent in kids:
-            kids[parent].append(kid)
-        else:
-            kids[parent] = [kid]
-
+    kids = list_of_children(person, parents, children)
     grandkids = 0
-    first_gen = kids[person]
-    for parent in first_gen:
-        if parent in kids:
-            grandkids += len(kids[parent])
+    for kid in kids:
+        grandkids += len(list_of_children(kid, parents, children))
 
     return grandkids
