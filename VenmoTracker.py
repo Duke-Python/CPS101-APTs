@@ -1,32 +1,20 @@
 
-NAMES = []
-CASH_FLOWS = []
-
-
-def add_amt(name, amt):
-    if name in NAMES:
-        ind = NAMES.index(name)
-        CASH_FLOWS[ind] += amt
-    else:
-        NAMES.append(name)
-        CASH_FLOWS.append(amt)
-
-
 def networth(transactions):
     """
     return list of strings based on transactions,
     which is also a list of strings
     """
-    NAMES.clear()
-    CASH_FLOWS.clear()
-    for trans in transactions:
-        sender, receiver, amt_str = trans.split(":")
+    amt_dict = dict()
+    for transaction in transactions:
+        sender, receiver, amt_str = transaction.split(":")
         amt = int(100*float(amt_str))
-        add_amt(sender, -amt)
-        add_amt(receiver, amt)
+        if sender not in amt_dict:
+            amt_dict[sender] = 0
+        if receiver not in amt_dict:
+            amt_dict[receiver] = 0
+        amt_dict[sender] -= amt
+        amt_dict[receiver] += amt
 
-    payers = [name + ":" + str(CASH_FLOWS[ind]/100)
-              for ind, name in enumerate(NAMES)]
-    print(payers)
-    payers.sort()
-    return payers
+    payers = [name + ":" + str(amt/100) for name, amt in amt_dict.items()]
+
+    return sorted(payers)
