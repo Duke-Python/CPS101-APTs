@@ -4,36 +4,24 @@ Created on Nov 8, 2012
 @author: George S. Hugh
 """
 
-from operator import itemgetter
-
 
 def winners(data):
 
-    name_list = []
-    task_list = []
-    time_list = []
+    con_dict = dict()
     for contestants in data:
         [name, time] = contestants.split(" ")
-        if name not in name_list:
-            name_list.append(name)
-        ind = name_list.index(name)
-        if len(task_list) <= ind:
-            task_list.append(1)
-            time_list.append(0)
-        else:
-            task_list[ind] = task_list[ind] + 1
+        if name not in con_dict:
+            con_dict[name] = (0, 0)
         [minutes, sec] = time.split(":")
-        time_list[ind] = time_list[ind] + (60*int(minutes) + int(sec))
-                        
-    print(name_list)
-    print(time_list)
+        task_time = 60*int(minutes) + int(sec)
+        new_tuple = (con_dict[name][0]+1, con_dict[name][1]+task_time)
+        con_dict[name] = new_tuple
 
     tuple_list = []
-    for ind, name in enumerate(name_list):
-        word_tuple = (name, task_list[ind], time_list[ind])
-        tuple_list.append(word_tuple)
+    for name, task_and_time in con_dict.items():
+        tuple_list.append((name, task_and_time[0], task_and_time[1]))
 
-    tuple_list.sort(key=itemgetter(2))
-    tuple_list.sort(key=itemgetter(1), reverse=True)
+    tuple_list.sort(key=lambda x: x[2])
+    tuple_list.sort(key=lambda x: x[1], reverse=True)
 
-    return [i[0] for i in tuple_list]
+    return [item[0] for item in tuple_list]
